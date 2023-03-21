@@ -5,6 +5,7 @@
 #
 
 import csv
+import sys
 
 # reads CSV and returns a list of lists per line
 # input: file name
@@ -23,7 +24,7 @@ def writeCSV(header, data, filename):
     #filename = filename[:-4] + "_Total"
 
     # Specify the filename to write to
-    filename = r"DiseaseData\Outputs\\" + filename + "_Total"
+    filename = r"DiseaseData\Outputs\\" + filename + "_Total.csv"
 
     # Open the file in write mode and specify the delimiter as a comma
     with open(filename, 'w', newline='') as csvfile:
@@ -95,8 +96,10 @@ def buildHeader(months, years):
 
 def main():
 
+    disease = sys.argv[1]
+
     #file1 = r"WestNile\UnitedStatesData\WestNile_1999_to_2021.csv"
-    disease = input("Please enter disease (No spaces and capitalize the first letter of each word (WestNile)): ")
+    #disease = input("Please enter disease (No spaces and capitalize the first letter of each word (WestNile)): ")
 
     file1 = r"DiseaseData\Diseases\\" + disease + "\\" + disease +  ".csv"
     yearData = readCSV(file1)
